@@ -2,6 +2,7 @@
 const express = require('express');
 const connection = require('./db');
 const app = express();
+const logger = require('./logger');
 
 const port = 3000;
 
@@ -23,7 +24,7 @@ app.get('/users', (req, res) => {
   
     connection.query(query, (err, results) => {
       if (err) {
-        console.error('Error executing query:', err.stack);
+        logger.error("Error executing query:", err.stack);
         return res.status(500).json({ error: 'Database error' });
       }
       res.json(results);
@@ -32,5 +33,5 @@ app.get('/users', (req, res) => {
 
 // Jalankan server
 app.listen(port, () => {
-    console.log(`Server berjalan di http://localhost:${port}`);
+    logger.info(`Server berjalan di http://localhost:${port}`); // Use logger.info
 });
