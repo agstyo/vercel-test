@@ -21,6 +21,10 @@ app.get('/', (req, res) => {
     return res.json({ message: "welcome" });
   });
 
+  app.get('/users', (req, res) => {
+    return res.json({ message: userInfo });
+  });
+
 // Route untuk mendapatkan informasi user
 /* app.get('/users', (req, res) => {
     const query = 'SELECT * FROM users';
