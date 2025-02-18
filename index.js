@@ -1,6 +1,6 @@
 
 const express = require('express');
-const connection = require('./db');
+//const connection = require('./db');
 const app = express();
 const logger = require('./logger');
 
@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
   });
 
 // Route untuk mendapatkan informasi user
-app.get('/users', (req, res) => {
+/* app.get('/users', (req, res) => {
     const query = 'SELECT * FROM users';
   
     connection.query(query, (err, results) => {
@@ -29,7 +29,7 @@ app.get('/users', (req, res) => {
       }
       res.json(results);
     });
-  });
+  }); */
 
 // Jalankan server
 app.listen(port, () => {

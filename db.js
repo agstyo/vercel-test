@@ -1,4 +1,4 @@
-require('dotenv').config();
+/* require('dotenv').config();
 const mysql = require('mysql2');
 const logger = require('./logger'); // Import the logger
 
@@ -33,4 +33,4 @@ connection.connect((err) => {
   logger.info(`Connected to TiDB as id ${connection.threadId}`); // Use logger.info
 });
 
-module.exports = connection;
+module.exports = connection; */
