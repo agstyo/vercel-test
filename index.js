@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
   });
 
 // Route untuk mendapatkan informasi user
-/* app.get('/users', (req, res) => {
+app.get('/usersedb', (req, res) => {
     const query = 'SELECT * FROM users';
   
     connection.query(query, (err, results) => {
@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
       }
       res.json(results);
     });
-  }); */
+  });
 
 // Jalankan server
 app.listen(port, () => {
