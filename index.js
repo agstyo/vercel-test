@@ -1,15 +1,18 @@
 
 const express = require('express');
 //const connection = require('./db');
+require('dotenv').config();
 const app = express();
 const logger = require('./logger');
 
 const port = 3000;
 
+const DBName = process.env.DB_NAME; // Get the value
+
 // Data hardcoded
 const userInfo = {
     id: 1,
-    name: 'John Doe',
+    name: DBName,
     email: 'john.doe@example.com',
     age: 30
 };
