@@ -1,15 +1,14 @@
 
 const express = require('express');
-const connection = require('./db').promise();
-require('dotenv').config();
-const app = express();
+//const connection = require('./db').promise();
+//require('dotenv').config();
 const logger = require('./logger');
 const bodyParser = require('body-parser');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
+const app = express();
 const port = 3002;
-
-const DBName = process.env.DB_NAME; // Get the value
+//const DBName = process.env.DB_NAME; // Get the value
 
 
 app.use(bodyParser.json()); // Middleware untuk membaca JSON dari request body
@@ -32,6 +31,10 @@ app.use('/api', createProxyMiddleware({
 app.get('/', (req, res) => {
     return res.json({ message: "welcome" });
   });
+
+app.listen(port, () => {
+console.log(`Proxy server running on port ${port}`);
+});
 
   // Endpoint POST untuk insert data
 // ... existing code ...
