@@ -2,7 +2,7 @@ require('dotenv').config();
 const mysql = require('mysql2');
 const logger = require('./logger'); // Import the logger
 
-const caCertBase64 = process.env.CA_CERT_BASE64; // Get the value
+ const caCertBase64 = process.env.CA_CERT_BASE64; // Get the value
 
 if (!caCertBase64) {
     logger.error("CA_CERT_BASE64 environment variable is not set!"); // Use logger.error
@@ -19,10 +19,11 @@ const connection = mysql.createConnection({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  ssl: {
+  multipleStatements: true, // Penting untuk eksekusi multi-query
+  /*ssl: {
     ca: caCert,
     rejectUnauthorized: true
-  }
+  }*/
 });
 
 connection.connect((err) => {
